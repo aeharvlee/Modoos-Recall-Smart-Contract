@@ -1,0 +1,25 @@
+{
+  "name": "modoos-recall-smart-contract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeharvlee/Modoos-Recall-Smart-Contract.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aeharvlee/Modoos-Recall-Smart-Contract/issues"
+  },
+  "homepage": "https://github.com/aeharvlee/Modoos-Recall-Smart-Contract#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.4.0"
+  }
+}

@@ -1,0 +1,1087 @@
+{
+  "contractName": "Recall",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "AddRecallSheet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "applicant",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "vehicleRegistrationNumber",
+          "type": "bytes32"
+        }
+      ],
+      "name": "CreateRecallState",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "RejectRecallState",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "createRecallState",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"createRecallState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"AddRecallSheet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"applicant\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"vehicleRegistrationNumber\",\"type\":\"bytes32\"}],\"name\":\"CreateRecallState\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"RejectRecallState\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"createRecallState()\":{\"details\":\"applicant who knows vehicleRegistrationNumber can create ReacllState    \"},\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/Recall.sol\":\"Recall\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/Recall.sol\":{\"keccak256\":\"0xef11a38303553f98ba252b3d4b5da32dadfaeed2700f8e8527926ff85b65b32e\",\"urls\":[\"bzzr://5ae9eb3d4d72957c86a60f716b190a98cbeba0133bf731eabafaebfa30a3a85d\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzzr://51482c01bddf23793bddee43b60ab9578a62948a4f2082def24ea792a553b055\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0xecd8ab29d9a5771c3964d0cd1788c4a5098a0081b20fb275da850a22b1c59806\",\"urls\":[\"bzzr://4950def18270142a78d503ef6b7b13bdb053f2f050cee50c883cd7cab2bb02d7\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061001f6100df60201b60201c565b6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36100e7565b600033905090565b610506806100f66000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063715018a61461005c5780638da5cb5b146100665780638f32d59b146100b0578063df6949f2146100d2578063f2fde38b146100dc575b600080fd5b610064610120565b005b61006e610259565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b8610282565b604051808215151515815260200191505060405180910390f35b6100da6102e0565b005b61011e600480360360208110156100f257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102e2565b005b610128610282565b61019a576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166102c4610368565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b565b6102ea610282565b61035c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b61036581610370565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103f6576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806104b56026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a165627a7a72305820f5523c01889814146938f044e8eecb5b4bd30a21cf2f1ae98efa9cd74eac3b180029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063715018a61461005c5780638da5cb5b146100665780638f32d59b146100b0578063df6949f2146100d2578063f2fde38b146100dc575b600080fd5b610064610120565b005b61006e610259565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b8610282565b604051808215151515815260200191505060405180910390f35b6100da6102e0565b005b61011e600480360360208110156100f257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102e2565b005b610128610282565b61019a576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166102c4610368565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b565b6102ea610282565b61035c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b61036581610370565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103f6576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806104b56026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a165627a7a72305820f5523c01889814146938f044e8eecb5b4bd30a21cf2f1ae98efa9cd74eac3b180029",
+  "sourceMap": "107:687:2:-;;;612:26;8:9:-1;5:2;;;30:1;27;20:12;5:2;612:26:2;707:12:4;:10;;;:12;;:::i;:::-;698:6;;:21;;;;;;;;;;;;;;;;;;767:6;;;;;;;;;;;734:40;;763:1;734:40;;;;;;;;;;;;107:687:2;;788:96:3;833:15;867:10;860:17;;788:96;:::o;107:687:2:-;;;;;;;",
+  "deployedSourceMap": "107:687:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;107:687:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1642:137:4;;;:::i;:::-;;857:77;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1208:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;735:54:2;;;:::i;:::-;;1928:107:4;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1928:107:4;;;;;;;;;;;;;;;;;;;:::i;:::-;;1642:137;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1740:1;1703:40;;1724:6;;;;;;;;;;;1703:40;;;;;;;;;;;;1770:1;1753:6;;:19;;;;;;;;;;;;;;;;;;1642:137::o;857:77::-;895:7;921:6;;;;;;;;;;;914:13;;857:77;:::o;1208:92::-;1248:4;1287:6;;;;;;;;;;;1271:22;;:12;:10;:12::i;:::-;:22;;;1264:29;;1208:92;:::o;735:54:2:-;:::o;1928:107:4:-;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2000:28;2019:8;2000:18;:28::i;:::-;1928:107;:::o;788:96:3:-;833:15;867:10;860:17;;788:96;:::o;2136:225:4:-;2229:1;2209:22;;:8;:22;;;;2201:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2318:8;2289:38;;2310:6;;;;;;;;;;;2289:38;;;;;;;;;;;;2346:8;2337:6;;:17;;;;;;;;;;;;;;;;;;2136:225;:::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"../node_modules/@openzeppelin/contracts/ownership/Ownable.sol\";\n\ncontract Recall is Ownable{\n\n  enum recallState { Rejected, Received, Proceeding, Complete }\n\n  event AddRecallSheet();\n\n  // Only user\n  event CreateRecallState(address indexed applicant, bytes32 vehicleRegistrationNumber);\n  // Only provider\n  event RejectRecallState();\n  \n\n  struct RepairSheet {\n    bytes32 parts;\n    bytes32 repairDescription;\n  }\n\n  struct RecallState {\n    address applicant;\n    bytes32 vehicleRegistrationNumber;\n    recallState state;\n    RepairSheet[] repairSheetList;\n  }\n\n  constructor() public {\n  }\n\n  /** @dev applicant who knows vehicleRegistrationNumber can create ReacllState\n   * \n   */ \n  function createRecallState(\n    \n  ) public {\n    \n  }\n  \n}\n",
+  "sourcePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/Recall.sol",
+  "ast": {
+    "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/Recall.sol",
+    "exportedSymbols": {
+      "Recall": [
+        188
+      ]
+    },
+    "id": 189,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 146,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:2"
+      },
+      {
+        "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
+        "file": "../node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
+        "id": 147,
+        "nodeType": "ImportDirective",
+        "scope": 189,
+        "sourceUnit": 330,
+        "src": "34:71:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 148,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 329,
+              "src": "126:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$329",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 149,
+            "nodeType": "InheritanceSpecifier",
+            "src": "126:7:2"
+          }
+        ],
+        "contractDependencies": [
+          215,
+          329
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 188,
+        "linearizedBaseContracts": [
+          188,
+          329,
+          215
+        ],
+        "name": "Recall",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Recall.recallState",
+            "id": 154,
+            "members": [
+              {
+                "id": 150,
+                "name": "Rejected",
+                "nodeType": "EnumValue",
+                "src": "157:8:2"
+              },
+              {
+                "id": 151,
+                "name": "Received",
+                "nodeType": "EnumValue",
+                "src": "167:8:2"
+              },
+              {
+                "id": 152,
+                "name": "Proceeding",
+                "nodeType": "EnumValue",
+                "src": "177:10:2"
+              },
+              {
+                "id": 153,
+                "name": "Complete",
+                "nodeType": "EnumValue",
+                "src": "189:8:2"
+              }
+            ],
+            "name": "recallState",
+            "nodeType": "EnumDefinition",
+            "src": "138:61:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 156,
+            "name": "AddRecallSheet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 155,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "223:2:2"
+            },
+            "src": "203:23:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 162,
+            "name": "CreateRecallState",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 161,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "indexed": true,
+                  "name": "applicant",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 162,
+                  "src": "269:25:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "269:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 160,
+                  "indexed": false,
+                  "name": "vehicleRegistrationNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 162,
+                  "src": "296:33:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 159,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "268:62:2"
+            },
+            "src": "245:86:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 164,
+            "name": "RejectRecallState",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 163,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:2:2"
+            },
+            "src": "353:26:2"
+          },
+          {
+            "canonicalName": "Recall.RepairSheet",
+            "id": 169,
+            "members": [
+              {
+                "constant": false,
+                "id": 166,
+                "name": "parts",
+                "nodeType": "VariableDeclaration",
+                "scope": 169,
+                "src": "411:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 165,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "411:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 168,
+                "name": "repairDescription",
+                "nodeType": "VariableDeclaration",
+                "scope": 169,
+                "src": "430:25:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 167,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RepairSheet",
+            "nodeType": "StructDefinition",
+            "scope": 188,
+            "src": "386:74:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Recall.RecallState",
+            "id": 179,
+            "members": [
+              {
+                "constant": false,
+                "id": 171,
+                "name": "applicant",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "489:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 170,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "489:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 173,
+                "name": "vehicleRegistrationNumber",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "512:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 172,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "512:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 175,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "551:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_recallState_$154",
+                  "typeString": "enum Recall.recallState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 174,
+                  "name": "recallState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 154,
+                  "src": "551:11:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_recallState_$154",
+                    "typeString": "enum Recall.recallState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 178,
+                "name": "repairSheetList",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "574:29:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_RepairSheet_$169_storage_$dyn_storage_ptr",
+                  "typeString": "struct Recall.RepairSheet[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 176,
+                    "name": "RepairSheet",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 169,
+                    "src": "574:11:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RepairSheet_$169_storage_ptr",
+                      "typeString": "struct Recall.RepairSheet"
+                    }
+                  },
+                  "id": 177,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "574:13:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_RepairSheet_$169_storage_$dyn_storage_ptr",
+                    "typeString": "struct Recall.RepairSheet[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RecallState",
+            "nodeType": "StructDefinition",
+            "scope": 188,
+            "src": "464:144:2",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 182,
+              "nodeType": "Block",
+              "src": "633:5:2",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 183,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 180,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "623:2:2"
+            },
+            "returnParameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "633:0:2"
+            },
+            "scope": 188,
+            "src": "612:26:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 186,
+              "nodeType": "Block",
+              "src": "779:10:2",
+              "statements": []
+            },
+            "documentation": "@dev applicant who knows vehicleRegistrationNumber can create ReacllState\n\n   ",
+            "id": 187,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createRecallState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "761:10:2"
+            },
+            "returnParameters": {
+              "id": 185,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "779:0:2"
+            },
+            "scope": 188,
+            "src": "735:54:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 189,
+        "src": "107:687:2"
+      }
+    ],
+    "src": "0:795:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/Recall.sol",
+    "exportedSymbols": {
+      "Recall": [
+        188
+      ]
+    },
+    "id": 189,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 146,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:2"
+      },
+      {
+        "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
+        "file": "../node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
+        "id": 147,
+        "nodeType": "ImportDirective",
+        "scope": 189,
+        "sourceUnit": 330,
+        "src": "34:71:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 148,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 329,
+              "src": "126:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$329",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 149,
+            "nodeType": "InheritanceSpecifier",
+            "src": "126:7:2"
+          }
+        ],
+        "contractDependencies": [
+          215,
+          329
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 188,
+        "linearizedBaseContracts": [
+          188,
+          329,
+          215
+        ],
+        "name": "Recall",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Recall.recallState",
+            "id": 154,
+            "members": [
+              {
+                "id": 150,
+                "name": "Rejected",
+                "nodeType": "EnumValue",
+                "src": "157:8:2"
+              },
+              {
+                "id": 151,
+                "name": "Received",
+                "nodeType": "EnumValue",
+                "src": "167:8:2"
+              },
+              {
+                "id": 152,
+                "name": "Proceeding",
+                "nodeType": "EnumValue",
+                "src": "177:10:2"
+              },
+              {
+                "id": 153,
+                "name": "Complete",
+                "nodeType": "EnumValue",
+                "src": "189:8:2"
+              }
+            ],
+            "name": "recallState",
+            "nodeType": "EnumDefinition",
+            "src": "138:61:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 156,
+            "name": "AddRecallSheet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 155,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "223:2:2"
+            },
+            "src": "203:23:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 162,
+            "name": "CreateRecallState",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 161,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "indexed": true,
+                  "name": "applicant",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 162,
+                  "src": "269:25:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "269:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 160,
+                  "indexed": false,
+                  "name": "vehicleRegistrationNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 162,
+                  "src": "296:33:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 159,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "268:62:2"
+            },
+            "src": "245:86:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 164,
+            "name": "RejectRecallState",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 163,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:2:2"
+            },
+            "src": "353:26:2"
+          },
+          {
+            "canonicalName": "Recall.RepairSheet",
+            "id": 169,
+            "members": [
+              {
+                "constant": false,
+                "id": 166,
+                "name": "parts",
+                "nodeType": "VariableDeclaration",
+                "scope": 169,
+                "src": "411:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 165,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "411:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 168,
+                "name": "repairDescription",
+                "nodeType": "VariableDeclaration",
+                "scope": 169,
+                "src": "430:25:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 167,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RepairSheet",
+            "nodeType": "StructDefinition",
+            "scope": 188,
+            "src": "386:74:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Recall.RecallState",
+            "id": 179,
+            "members": [
+              {
+                "constant": false,
+                "id": 171,
+                "name": "applicant",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "489:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 170,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "489:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 173,
+                "name": "vehicleRegistrationNumber",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "512:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 172,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "512:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 175,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "551:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_recallState_$154",
+                  "typeString": "enum Recall.recallState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 174,
+                  "name": "recallState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 154,
+                  "src": "551:11:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_recallState_$154",
+                    "typeString": "enum Recall.recallState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 178,
+                "name": "repairSheetList",
+                "nodeType": "VariableDeclaration",
+                "scope": 179,
+                "src": "574:29:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_RepairSheet_$169_storage_$dyn_storage_ptr",
+                  "typeString": "struct Recall.RepairSheet[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 176,
+                    "name": "RepairSheet",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 169,
+                    "src": "574:11:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RepairSheet_$169_storage_ptr",
+                      "typeString": "struct Recall.RepairSheet"
+                    }
+                  },
+                  "id": 177,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "574:13:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_RepairSheet_$169_storage_$dyn_storage_ptr",
+                    "typeString": "struct Recall.RepairSheet[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RecallState",
+            "nodeType": "StructDefinition",
+            "scope": 188,
+            "src": "464:144:2",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 182,
+              "nodeType": "Block",
+              "src": "633:5:2",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 183,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 180,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "623:2:2"
+            },
+            "returnParameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "633:0:2"
+            },
+            "scope": 188,
+            "src": "612:26:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 186,
+              "nodeType": "Block",
+              "src": "779:10:2",
+              "statements": []
+            },
+            "documentation": "@dev applicant who knows vehicleRegistrationNumber can create ReacllState\n\n   ",
+            "id": 187,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createRecallState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "761:10:2"
+            },
+            "returnParameters": {
+              "id": 185,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "779:0:2"
+            },
+            "scope": 188,
+            "src": "735:54:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 189,
+        "src": "107:687:2"
+      }
+    ],
+    "src": "0:795:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.16",
+  "updatedAt": "2019-11-24T15:03:55.907Z",
+  "devdoc": {
+    "methods": {
+      "createRecallState()": {
+        "details": "applicant who knows vehicleRegistrationNumber can create ReacllState    "
+      },
+      "isOwner()": {
+        "details": "Returns true if the caller is the current owner."
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

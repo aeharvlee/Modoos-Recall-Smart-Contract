@@ -6,7 +6,8 @@ contract KoreaVehicleVendors is Ownable {
 
   struct VehicleVendor {
     bytes32 vendorName;
-    address[] adminAccounts;
+    mapping (address => bool) adminAccounts;
+    bool isExist;
   }
 
   mapping (address => VehicleVendor) public vehicleVendors;
@@ -39,11 +40,26 @@ contract KoreaVehicleVendors is Ownable {
   onlyUniqueAddressAllowed (_vendorAdmin)
   returns (bool success)
   {
+    if (vehicleVendors[_vendorAdmin].isExist == true) {
+      return false;
+    }
+
     vehicleVendors[_vendorAdmin].vendorName = _vendorName;
-    vehicleVendors[_vendorAdmin].adminAccounts.push(_vendorAdmin);
+    vehicleVendors[_vendorAdmin].adminAccounts[_vendorAdmin] = true;
+    vehicleVendors[_vendorAdmin].isExist = true;
 
     emit AddVehicleVendor(_vendorName, _vendorAdmin);
     isVehicleVendor[_vendorAdmin] = true;
     return true; 
+  }
+
+  function getVehicleVendor (
+    address _vendorAdmin
+  )
+  public
+  view
+  returns (bytes32 vendorName)
+  {
+    return vehicleVendors[_vendorAdmin].vendorName;
   }
 }

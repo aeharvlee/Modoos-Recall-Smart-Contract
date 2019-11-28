@@ -46,7 +46,8 @@ contract Recall is Ownable{
   function createRecall (
     bytes32 _vehicleRegistrationNumber
   )
-  public {
+  public 
+  {
     recallStates[msg.sender].applicant = msg.sender;
     recallStates[msg.sender].vehicleRegistrationNumber = _vehicleRegistrationNumber;
     recallStates[msg.sender].state = recallState.Created;

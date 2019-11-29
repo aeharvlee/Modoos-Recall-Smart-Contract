@@ -114,4 +114,51 @@ router.get('/proceed', async function(req, res, next) {
   console.log(receipt)
   res.send(receipt);
 });
+
+router.get('/repair', async function(req, res, next) {
+  // get request params
+  docno = req.query.infoId
+  parts = req.query.parts
+  desc = req.query.desc
+  vendorName = req.query.vendor_name
+
+  const abiCreateRepairSheet = recall.methods.createRepairSheet(
+		helper.stringToBytes32(docno),
+		helper.stringToBytes32(parts),
+		helper.stringToBytes32(desc),
+  ).encodeABI()
+
+  let feeDelegatedSmartContractObject = {
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: keyChain[vendorName]['address'],
+    to: recall._address,
+    data: abiCreateRepairSheet,
+    gas: '300000',
+  };
+
+  let rlpEncodedTransaction = null;
+  try {
+      rlpEncodedTransaction = await caver.klay.accounts.signTransaction(
+          feeDelegatedSmartContractObject,
+		      keyChain[vendorName]['privateKey'], 
+      );
+  } catch (error) {
+      console.log(error);
+      throw Error(error);
+  }
+
+  let receipt = null;
+  try {
+      receipt = await caver.klay.sendTransaction({
+          senderRawTransaction: rlpEncodedTransaction.rawTransaction,
+          feePayer: feePayer.address
+      });
+  } catch (error) {
+      throw Error(error);
+  }
+
+  console.log(receipt)
+  res.send(receipt);
+});
+
 module.exports = router;

@@ -12,6 +12,11 @@ const koreaVehicleVendors = contract.koreaVehicleVendors
 const recall = contract.recall
 const keyChain = keystore.keyChain
 
+const feePayer = await caver.klay.accounts.wallet.add(
+  keyChain['government']['privateKey'],
+  keyChain['government']['address'],
+)
+
 const app = express()
 
 app.use(express.json())
@@ -21,25 +26,12 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(morgan('combined'))
 
-const result = [
-  {message: 'Hello, world (again)!'}
-]
-
 app.get('/', async (req, res) => {
   console.log(req)
   res.send('GET request to the homepage')
 })
 
 app.post('/', async (req, res) => {
-  const feePayer = await caver.klay.accounts.wallet.add(
-    keyChain['government']['privateKey'],
-    keyChain['government']['address'],
-  )
-
-  const data = req.body
-  console.log(data)
-  res.send(data)
-  /*
   const abiCreateRecall = recall.methods.createRecall(
     helper.stringToBytes32(data.primaryKey),
     keyChain[data.vendorName]['address'], 
@@ -60,7 +52,6 @@ app.post('/', async (req, res) => {
   }
 
   console.log(receipt)
-  */
 })
 
 app.listen(3001, () => {

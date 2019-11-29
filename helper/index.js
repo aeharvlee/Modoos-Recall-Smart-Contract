@@ -37,67 +37,7 @@ const bytes32ToString = (bytes32) => {
   return ascii;
 }
 
-/**
- * run fee delegated smart contract execute.
- * @param {String} fromAddress
- * @param {String} fromPrivateKey
- * @param {String} address of smart contract
- * @param {Object} feePayer must be added klaytn wallet first
- * @param {Object} abiOfMethod
- * @return {Object} receipt of transaction 
- */
-const feeDelegatedSmartContractExecute = async(
-  fromAddress, 
-  fromPrivateKey,
-  to, 
-  feePayer,
-  abiOfMethod
-) => {
-  if (!caver.utils.isAddress(fromAddress)) {
-      throw new Error(`The parameter ${fromAddress} must be a valid address`);
-  } else if (!caver.utils.isAddress(to)) {
-      throw new Error(`The parameter ${to} must be a valid address`);
-  } else if (!caver.utils.isAddress(feePayer.address)) {
-      throw new Error(`The parameter ${feePayer.address} must be a valid address`);
-  };
-
-  if (!caver.utils.isHex(fromPrivateKey)) {
-      throw new Error(`The parameter ${fromAddress} must be a valid HEX string`);
-  };
-
-  let feeDelegatedSmartContractObject = {
-      type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
-      from: fromAddress,
-      to: to,
-      data: abiOfMethod,
-      gas: constant.GAS_LIMIT,
-  };
-
-  let rlpEncodedTransaction = null;
-  try {
-      rlpEncodedTransaction = await caver.klay.accounts.signTransaction(
-          feeDelegatedSmartContractObject,
-          fromPrivateKey
-      );
-  } catch (error) {
-      console.log(error);
-      throw Error(error);
-  }
-
-  let receipt = null;
-  try {
-      receipt = await caver.klay.sendTransaction({
-          senderRawTransaction: rlpEncodedTransaction.rawTransaction,
-          feePayer: feePayer.address
-      });
-  } catch (error) {
-      throw Error(error);
-  }
-  return receipt;
-}
-
 module.exports = {
   stringToBytes32: stringToBytes32,
-  bytes32ToString: bytes32ToString,
-  feeDelegatedSmartContractExecute: feeDelegatedSmartContractExecute
+  bytes32ToString: bytes32ToString
 }

@@ -5,7 +5,7 @@ import "./KoreaVehicleVendors.sol";
 
 contract Recall is Ownable{
 
-  enum recallState { Created, Rejected, Proceeding, Complete }
+  enum recallState { Created, RejectedByConsumer, RejectedByVendor, Proceeding, CompleteByVendor, ConfirmedByConsumer }
 
   struct RepairSheet {
     bytes32 parts;
@@ -81,10 +81,54 @@ contract Recall is Ownable{
     bytes32 _primaryKey
   )
   public
-  onlyVendorAllowed(msg.sender)
+  //onlyVendorAllowed(msg.sender)
   {
     recallStates[_primaryKey].state = recallState.Proceeding;
     emit UpdateRecall(_primaryKey, msg.sender, recallStates[_primaryKey].applicant, recallStates[_primaryKey].state);
+  }
+
+  /** @dev create repair sheet
+   * @param _primaryKey index of database of Modoo's Recall
+   * @param _parts parts to be repaired
+   */
+  function createRepairSheet (
+    bytes32 _primaryKey,
+    bytes32 _parts,
+    bytes32 _repairDescription
+  )
+  public
+  //onlyVendorAllowed(msg.sender)
+  {
+    recallStates[_primaryKey].repairSheetList.push(
+      RepairSheet(_parts, _repairDescription)
+    );
+  }
+
+  function getLengthOfRepairSheetList (
+    bytes32 _primaryKey
+  )
+  public
+  view
+  returns (uint length)
+  {
+    return recallStates[_primaryKey].repairSheetList.length;
+  }
+
+  function getRepairSheet (
+    bytes32 _primaryKey,
+    uint256 _index
+  )
+  public
+  view
+  returns (
+    bytes32 parts,
+    bytes32 repairDescription
+  )
+  {
+    return ((
+      recallStates[_primaryKey].repairSheetList[_index].parts,
+      recallStates[_primaryKey].repairSheetList[_index].repairDescription
+    ));
   }
 
   /** @dev for some reason, vendor can reject recall
@@ -100,7 +144,7 @@ contract Recall is Ownable{
   public
   onlyVendorAllowed(msg.sender)
   {
-    recallStates[_primaryKey].state = recallState.Rejected;
+    recallStates[_primaryKey].state = recallState.RejectedByVendor;
     emit RejectRecallByVendor(_primaryKey, msg.sender, _applicant, _reason);
   }
 
@@ -117,12 +161,12 @@ contract Recall is Ownable{
   public
   {
     if (recallStates[_primaryKey].isExist == true) {
-      recallStates[_primaryKey].state = recallState.Rejected;
+      recallStates[_primaryKey].state = recallState.RejectedByConsumer;
       emit RejectRecallByCustomer(_primaryKey, _vendor, msg.sender, _reason);
     }
   }
 
-  /** @dev
+  /** @dev get state of recall
    * @param _primaryKey index of database of Modoo's Recall
    */
   function getRecallState (

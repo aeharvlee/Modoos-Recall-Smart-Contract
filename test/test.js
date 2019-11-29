@@ -11,6 +11,14 @@ contract("Modoo's Recall Test", async accounts => {
   let alice = undefined
   let bob = undefined
   let hyundai = undefined
+  const recallStatus = {
+    'Created': 0,
+    'RejectedByConsumer': 1,
+    'RejectedByVendor': 2,
+    'Proceeding': 3,
+    'CompleteByVendor': 4,
+    'ConfirmedByConsumer': 5
+  }
 
   before("setup contract", async () => {
     koreaVehicleVendors = await KoreaVehicleVendors.deployed()
@@ -104,7 +112,7 @@ contract("Modoo's Recall Test", async accounts => {
       assert.strictEqual(primaryKey, 'RCLL_000000000017098')
       assert.strictEqual(customer, alice)
       assert.strictEqual(vehicleRegistrationNumber, 'KMHEM42APXA123456')
-      assert.strictEqual(state, 0)
+      assert.strictEqual(state, recallStatus['Created'])
     })
 
     it("1-3: alice rejectRecall", async () => {
@@ -119,6 +127,7 @@ contract("Modoo's Recall Test", async accounts => {
           caver.utils.asciiToHex('RCLL_000000000017098')
         )
         let primaryKey = recallState.primaryKey
+        primaryKey = caver.utils.hexToAscii(primaryKey)
         primaryKey = primaryKey.replace(/\0/g, '')
         
         const customer = recallState.applicant
@@ -126,22 +135,39 @@ contract("Modoo's Recall Test", async accounts => {
         let vehicleRegistrationNumber = caver.utils.hexToAscii(recallState.vehicleRegistrationNumber)
         vehicleRegistrationNumber = vehicleRegistrationNumber.replace(/\0/g, '')
 
-        
-
         let state = recallState.state
         state = state.toNumber()
 
         assert.strictEqual(alice, customer)
-        assert.strictEqual('RCLL_000000000017098', primaryKey)
-        assert.strictEqual('KMHEM42APXA123456', vehicleRegistrationNumber)
-        assert.strictEqual(1, state) // recallState.Rejected
+        assert.strictEqual(primaryKey, 'RCLL_000000000017098')
+        assert.strictEqual(vehicleRegistrationNumber, 'KMHEM42APXA123456')
+        assert.strictEqual(state, recallStatus['RejectedByConsumer'])
 
       } catch (error) {
-
+        assert.fail(error) 
       }
     })
 
-    it("2-1: Hyundai proceed recall by alice", async () => {
+    it("2-1: Hyundai call proceedRecall by alice", async () => {
+      try {
+        await recall.proceedRecall(
+          caver.utils.asciiToHex('RCLL_000000000017098'),
+          {from: hyundai}
+        )
+        const recallState = await recall.getRecallState(
+          caver.utils.asciiToHex('RCLL_000000000017098')
+        )
+        let state = recallState.state
+        state = state.toNumber()
+        
+        assert.strictEqual(state, recallStatus['Proceeding']) // recallState.Proceeding
+
+      } catch (error) {
+        assert.fail(error) 
+      }
+    })
+
+    it("2-2: Hyundai call proceedRecall engine recall by alice", async () => {
       try {
         const receipt = await recall.proceedRecall(
           caver.utils.asciiToHex('RCLL_000000000017098'),
@@ -153,11 +179,55 @@ contract("Modoo's Recall Test", async accounts => {
         let state = recallState.state
         state = state.toNumber()
         
-        assert.strictEqual(2, state) // recallState.Proceeding
+        assert.strictEqual(state, recallStatus['Proceeding']) // recallState.Proceeding
 
       } catch (error) {
-
+        assert.fail(error) 
       }
     })
   })
+
+  it("2-3: Hyundai call createRepairSheet 3times about recall by alice", async () => {
+    try {
+      await recall.createRepairSheet(
+          caver.utils.asciiToHex('RCLL_000000000017098'),
+          caver.utils.asciiToHex('Engine'),
+          caver.utils.asciiToHex('Engine Complete'),
+          {from: hyundai}
+      )
+      await recall.createRepairSheet(
+        caver.utils.asciiToHex('RCLL_000000000017098'),
+        caver.utils.asciiToHex('Wheel'),
+        caver.utils.asciiToHex('Wheel Complete'),
+        {from: hyundai}
+    )
+      await recall.createRepairSheet(
+        caver.utils.asciiToHex('RCLL_000000000017098'),
+        caver.utils.asciiToHex('Window'),
+        caver.utils.asciiToHex('Window Complete'),
+        {from: hyundai}
+      )
+
+      const length = await recall.getLengthOfRepairSheetList(
+        caver.utils.asciiToHex('RCLL_000000000017098'),
+        {from: hyundai}
+      )
+
+      for (let i = 0; i < length; i++) {
+        let repairSheet = await recall.getRepairSheet(
+          caver.utils.asciiToHex('RCLL_000000000017098'),
+          i
+        )
+        repairSheet.parts = caver.utils.hexToAscii(repairSheet.parts);
+        repairSheet.parts = repairSheet.parts.replace(/\0/g, '')
+        repairSheet.repairDescription = caver.utils.hexToAscii(repairSheet.repairDescription);
+        repairSheet.repairDescription = repairSheet.repairDescription.replace(/\0/g, '') 
+        console.log(repairSheet);
+      }
+      
+    } catch (error) {
+      assert.fail(error) 
+    }
+  })
+  
 })

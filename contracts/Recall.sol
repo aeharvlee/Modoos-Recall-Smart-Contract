@@ -131,6 +131,28 @@ contract Recall is Ownable{
     ));
   }
 
+  function setScore (
+    bytes32 _primaryKey,
+    uint32 _score
+  )
+  public
+  {
+    if (recallStates[_primaryKey].isExist) {
+      recallStates[_primaryKey].score = _score;
+      recallStates[_primaryKey].state = recallState.ConfirmedByConsumer;
+    }
+  }
+
+  function completeRecall (
+    bytes32 _primaryKey
+  )
+  public
+  {
+    if (recallStates[_primaryKey].isExist) {
+      recallStates[_primaryKey].state = recallState.CompleteByVendor;
+    }
+  }
+
   /** @dev for some reason, vendor can reject recall
    * @param _primaryKey index of database of Modoo's Recall
    * @param _applicant address of customer who request recall

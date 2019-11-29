@@ -25,8 +25,7 @@ kia = caver.klay.accounts.wallet.add(
   keyChain['kia']['address']
 )
 
-/* GET users listing. */
-router.get('/', async function(req, res, next) {
+router.get('/create', async function(req, res, next) {
 	docno = req.query.infoId
 	address = req.query.user_id
 	user_privatekey = req.query.user_privatekey

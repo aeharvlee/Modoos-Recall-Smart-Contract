@@ -30,6 +30,7 @@ app.get('/', async (req, res) => {
   )
 
   const data = req.body
+  console.log(data)
   const abiCreateRecall = recall.methods.createRecall(
     helper.stringToBytes32(data.primaryKey),
     keyChain[data.vendorName]['address'], 

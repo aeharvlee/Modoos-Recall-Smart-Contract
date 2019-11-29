@@ -33,6 +33,8 @@ app.post('/', async (req, res) => {
 
   const data = req.body
   console.log(data)
+  res.json(data)
+  /*
   const abiCreateRecall = recall.methods.createRecall(
     helper.stringToBytes32(data.primaryKey),
     keyChain[data.vendorName]['address'], 
@@ -53,7 +55,7 @@ app.post('/', async (req, res) => {
   }
 
   console.log(receipt)
-
+  */
 })
 
 app.listen(3001, () => {

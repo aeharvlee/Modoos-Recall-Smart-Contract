@@ -109,13 +109,14 @@ contract("Modoo's Recall Test", async accounts => {
 
     it("1-3: alice rejectRecall", async () => {
       try {
-        const receipt = await recall.rejectRecall(
+        const receipt = await recall.rejectRecallByCustomer(
           caver.utils.asciiToHex('RCLL_000000000017098'),
-          alice,
-          caver.utils.asciiToHex('Engine Fault')
+          hyundai,
+          caver.utils.asciiToHex('Engine Fault'),
+          {from: alice}
         )
         const recallState = await recall.getRecallState(
-          
+          caver.utils.asciiToHex('RCLL_000000000017098')
         )
         let primaryKey = recallState.primaryKey
         primaryKey = primaryKey.replace(/\0/g, '')
@@ -125,18 +126,38 @@ contract("Modoo's Recall Test", async accounts => {
         let vehicleRegistrationNumber = caver.utils.hexToAscii(recallState.vehicleRegistrationNumber)
         vehicleRegistrationNumber = vehicleRegistrationNumber.replace(/\0/g, '')
 
+        
+
         let state = recallState.state
         state = state.toNumber()
 
         assert.strictEqual(alice, customer)
         assert.strictEqual('RCLL_000000000017098', primaryKey)
         assert.strictEqual('KMHEM42APXA123456', vehicleRegistrationNumber)
-        assert.strictEqual(1, state)
+        assert.strictEqual(1, state) // recallState.Rejected
 
       } catch (error) {
 
       }
     })
-    
+
+    it("2-1: Hyundai proceed recall by alice", async () => {
+      try {
+        const receipt = await recall.proceedRecall(
+          caver.utils.asciiToHex('RCLL_000000000017098'),
+          {from: hyundai}
+        )
+        const recallState = await recall.getRecallState(
+          caver.utils.asciiToHex('RCLL_000000000017098')
+        )
+        let state = recallState.state
+        state = state.toNumber()
+        
+        assert.strictEqual(2, state) // recallState.Proceeding
+
+      } catch (error) {
+
+      }
+    })
   })
 })

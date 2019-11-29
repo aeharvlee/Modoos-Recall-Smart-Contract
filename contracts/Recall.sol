@@ -74,6 +74,19 @@ contract Recall is Ownable{
     emit CreateRecall(_primaryKey, _vendor, msg.sender, _vehicleRegistrationNumber);
   }
 
+  /** @dev applicant who knows vehicleRegistrationNumber can create recall
+   * @param _primaryKey index of database of Modoo's Recall
+   */
+  function proceedRecall (
+    bytes32 _primaryKey
+  )
+  public
+  onlyVendorAllowed(msg.sender)
+  {
+    recallStates[_primaryKey].state = recallState.Proceeding;
+    emit UpdateRecall(_primaryKey, msg.sender, recallStates[_primaryKey].applicant, recallStates[_primaryKey].state);
+  }
+
   /** @dev for some reason, vendor can reject recall
    * @param _primaryKey index of database of Modoo's Recall
    * @param _applicant address of customer who request recall

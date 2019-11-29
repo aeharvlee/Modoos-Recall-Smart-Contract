@@ -14,6 +14,8 @@ const keyChain = keystore.keyChain
 
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 app.use(bodyParser.json())
 app.use(cors())
@@ -23,7 +25,7 @@ const result = [
   {message: 'Hello, world (again)!'}
 ]
 
-app.get('/', async (req, res) => {
+app.post('/', async (req, res) => {
   const feePayer = await caver.klay.accounts.wallet.add(
     keyChain['government']['privateKey'],
     keyChain['government']['address'],

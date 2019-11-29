@@ -8,7 +8,7 @@ const abiOfKoreaVehicleVendors = JSON.parse(metadataOfKoreaVehicleVendors).abi
 
 const metadataOfRecall = fs.readFileSync(`${__dirname}/../metadataOfRecall`, 'utf-8')
 const addressOfRecall = fs.readFileSync(`${__dirname}/../addressOfRecall`, 'utf-8')
-const abiOfRecall = JSON.parse(metadataOfRecall.abi)
+const abiOfRecall = JSON.parse(metadataOfRecall).abi
 
 const koreaVehicleVendors = new caver.klay.Contract(abiOfKoreaVehicleVendors, addressOfKoreaVehicleVendors)
 const recall = new caver.klay.Contract(abiOfRecall, addressOfRecall)

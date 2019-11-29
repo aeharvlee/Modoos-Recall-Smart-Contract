@@ -2,12 +2,54 @@
   "contractName": "KoreaVehicleVendors",
   "abi": [
     {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "vehicleVendors",
+      "outputs": [
+        {
+          "name": "vendorName",
+          "type": "bytes32"
+        },
+        {
+          "name": "isExist",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isVehicleVendor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -114,23 +156,42 @@
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_vendorAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "getVehicleVendorName",
+      "outputs": [
+        {
+          "name": "vendorName",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_vendorName\",\"type\":\"bytes32\"},{\"name\":\"_vendorAdmin\",\"type\":\"address\"}],\"name\":\"addVehicleVendor\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"vendorName\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"vendorAdmin\",\"type\":\"address\"}],\"name\":\"AddVehicleVendor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"addVehicleVendor(bytes32,address)\":{\"params\":{\"_vendorAdmin\":\"address of vendor's admin\",\"_vendorName\":\"vehicle vendor like \\\"Hyundai\\\", \\\"Kia\\\", \\\"\"}},\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol\":\"KoreaVehicleVendors\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol\":{\"keccak256\":\"0xd418bcf52e1bc160414365f1f558894c20e8f3cede5f7850ccc16da7e7ab8562\",\"urls\":[\"bzzr://1932276bbc6221294b538272f8bc4592eb18f1d35c1712e05d952c1b9a3c623a\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzzr://51482c01bddf23793bddee43b60ab9578a62948a4f2082def24ea792a553b055\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0xecd8ab29d9a5771c3964d0cd1788c4a5098a0081b20fb275da850a22b1c59806\",\"urls\":[\"bzzr://4950def18270142a78d503ef6b7b13bdb053f2f050cee50c883cd7cab2bb02d7\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061001f6100df60201b60201c565b6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36100e7565b600033905090565b610867806100f66000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806341141a171461005c578063715018a6146100c25780638da5cb5b146100cc5780638f32d59b14610116578063f2fde38b14610138575b600080fd5b6100a86004803603604081101561007257600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061017c565b604051808215151515815260200191505060405180910390f35b6100ca61045d565b005b6100d4610596565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61011e6105bf565b604051808215151515815260200191505060405180910390f35b61017a6004803603602081101561014e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061061d565b005b60006101866105bf565b6101f8576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b8160001515600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161515146102a2576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806108166026913960400191505060405180910390fd5b83600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000181905550600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550507f72faafae076b34bca7394603d775fc1a5d9081361444587f79eeb5e8e157304f8484604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a16001600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600191505092915050565b6104656105bf565b6104d7576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166106016106a3565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6106256105bf565b610697576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6106a0816106ab565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610731576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806107f06026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f20616464726573735f6164647220616c72656164792065786973747320696e2076656869636c6556656e646f7273a165627a7a72305820318ef40a2801ee7bb3ddd72cc49520f27506c43c4828c2da790300a72c20c2c20029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806341141a171461005c578063715018a6146100c25780638da5cb5b146100cc5780638f32d59b14610116578063f2fde38b14610138575b600080fd5b6100a86004803603604081101561007257600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061017c565b604051808215151515815260200191505060405180910390f35b6100ca61045d565b005b6100d4610596565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61011e6105bf565b604051808215151515815260200191505060405180910390f35b61017a6004803603602081101561014e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061061d565b005b60006101866105bf565b6101f8576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b8160001515600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161515146102a2576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806108166026913960400191505060405180910390fd5b83600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000181905550600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550507f72faafae076b34bca7394603d775fc1a5d9081361444587f79eeb5e8e157304f8484604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a16001600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600191505092915050565b6104656105bf565b6104d7576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166106016106a3565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6106256105bf565b610697576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6106a0816106ab565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610731576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806107f06026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f20616464726573735f6164647220616c72656164792065786973747320696e2076656869636c6556656e646f7273a165627a7a72305820318ef40a2801ee7bb3ddd72cc49520f27506c43c4828c2da790300a72c20c2c20029",
-  "sourceMap": "107:1052:0:-;;;574:32;8:9:-1;5:2;;;30:1;27;20:12;5:2;574:32:0;707:12:4;:10;;;:12;;:::i;:::-;698:6;;:21;;;;;;;;;;;;;;;;;;767:6;;;;;;;;;;;734:40;;763:1;734:40;;;;;;;;;;;;107:1052:0;;788:96:3;833:15;867:10;860:17;;788:96;:::o;107:1052:0:-;;;;;;;",
-  "deployedSourceMap": "107:1052:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;107:1052:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;737:420;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;737:420:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1642:137:4;;;:::i;:::-;;857:77;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1208:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1928:107;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1928:107:4;;;;;;;;;;;;;;;;;;;:::i;:::-;;737:420:0;895:12;1061:9:4;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;870:12:0;499:5;473:31;;:15;:22;489:5;473:22;;;;;;;;;;;;;;;;;;;;;;;;;:31;;;458:100;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;959:11;917:14;:28;932:12;917:28;;;;;;;;;;;;;;;:39;;:53;;;;976:14;:28;991:12;976:28;;;;;;;;;;;;;;;:42;;1024:12;976:61;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;976:61:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1049:43;1066:11;1079:12;1049:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;1130:4;1098:15;:29;1114:12;1098:29;;;;;;;;;;;;;;;;:36;;;;;;;;;;;;;;;;;;1147:4;1140:11;;1117:1:4;737:420:0;;;;:::o;1642:137:4:-;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1740:1;1703:40;;1724:6;;;;;;;;;;;1703:40;;;;;;;;;;;;1770:1;1753:6;;:19;;;;;;;;;;;;;;;;;;1642:137::o;857:77::-;895:7;921:6;;;;;;;;;;;914:13;;857:77;:::o;1208:92::-;1248:4;1287:6;;;;;;;;;;;1271:22;;:12;:10;:12::i;:::-;:22;;;1264:29;;1208:92;:::o;1928:107::-;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2000:28;2019:8;2000:18;:28::i;:::-;1928:107;:::o;788:96:3:-;833:15;867:10;860:17;;788:96;:::o;2136:225:4:-;2229:1;2209:22;;:8;:22;;;;2201:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2318:8;2289:38;;2310:6;;;;;;;;;;;2289:38;;;;;;;;;;;;2346:8;2337:6;;:17;;;;;;;;;;;;;;;;;;2136:225;:::o",
-  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"../node_modules/@openzeppelin/contracts/ownership/Ownable.sol\";\n\ncontract KoreaVehicleVendors is Ownable {\n\n  struct VehicleVendor {\n    bytes32 vendorName;\n    address[] adminAccounts;\n  }\n\n  mapping (address => VehicleVendor) vehicleVendors;\n  mapping (address => bool) isVehicleVendor;\n\n  event AddVehicleVendor(bytes32 vendorName, address vendorAdmin);\n\n  modifier onlyUniqueAddressAllowed (address _addr) {\n    require(\n      isVehicleVendor[_addr] == false,\n      \"_addr already exists in vehicleVendors\"\n    );\n    _;\n  }\n\n  constructor () public {\n    \n  }\n\n  /**\n   * @param _vendorName vehicle vendor like \"Hyundai\", \"Kia\", \"\n   * @param _vendorAdmin address of vendor's admin\n   */\n  function addVehicleVendor (\n    bytes32 _vendorName, \n    address _vendorAdmin\n  )\n  public \n  onlyOwner\n  onlyUniqueAddressAllowed (_vendorAdmin)\n  returns (bool success)\n  {\n    vehicleVendors[_vendorAdmin].vendorName = _vendorName;\n    vehicleVendors[_vendorAdmin].adminAccounts.push(_vendorAdmin);\n\n    emit AddVehicleVendor(_vendorName, _vendorAdmin);\n    isVehicleVendor[_vendorAdmin] = true;\n    return true; \n  }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.1+commit.c8a2cb62\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_vendorAdmin\",\"type\":\"address\"}],\"name\":\"getVehicleVendorName\",\"outputs\":[{\"name\":\"vendorName\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"vehicleVendors\",\"outputs\":[{\"name\":\"vendorName\",\"type\":\"bytes32\"},{\"name\":\"isExist\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_vendorName\",\"type\":\"bytes32\"},{\"name\":\"_vendorAdmin\",\"type\":\"address\"}],\"name\":\"addVehicleVendor\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"isVehicleVendor\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"vendorName\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"vendorAdmin\",\"type\":\"address\"}],\"name\":\"AddVehicleVendor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"addVehicleVendor(bytes32,address)\":{\"params\":{\"_vendorAdmin\":\"address of vendor's admin\",\"_vendorName\":\"vehicle vendor like \\\"Hyundai\\\", \\\"Kia\\\"\"}},\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol\":\"KoreaVehicleVendors\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol\":{\"keccak256\":\"0xab29aae34ece59314e7ce84bcd3411da2e42e626e186cf484f803491c9e86b52\",\"urls\":[\"bzzr://9a4dfd96c02fea3509493ea54df0ac8c2a2de7988951f0b3d0743d2f69baf6d9\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzzr://51482c01bddf23793bddee43b60ab9578a62948a4f2082def24ea792a553b055\"]},\"/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/node_modules/@openzeppelin/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0xecd8ab29d9a5771c3964d0cd1788c4a5098a0081b20fb275da850a22b1c59806\",\"urls\":[\"bzzr://4950def18270142a78d503ef6b7b13bdb053f2f050cee50c883cd7cab2bb02d7\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506100286100e8640100000000026401000000009004565b6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36100f0565b600033905090565b610ba9806100ff6000396000f3fe608060405260043610610088576000357c01000000000000000000000000000000000000000000000000000000009004806326583fc61461008d578063400f1415146100f257806341141a1714610162578063715018a6146101d55780637b658594146101ec5780638da5cb5b146102555780638f32d59b146102ac578063f2fde38b146102db575b600080fd5b34801561009957600080fd5b506100dc600480360360208110156100b057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061032c565b6040518082815260200191505060405180910390f35b3480156100fe57600080fd5b506101416004803603602081101561011557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b60405180838152602001821515151581526020019250505060405180910390f35b34801561016e57600080fd5b506101bb6004803603604081101561018557600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103a9565b604051808215151515815260200191505060405180910390f35b3480156101e157600080fd5b506101ea610782565b005b3480156101f857600080fd5b5061023b6004803603602081101561020f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108bd565b604051808215151515815260200191505060405180910390f35b34801561026157600080fd5b5061026a6108dd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102b857600080fd5b506102c1610906565b604051808215151515815260200191505060405180910390f35b3480156102e757600080fd5b5061032a600480360360208110156102fe57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610964565b005b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050919050565b60016020528060005260406000206000915090508060000154908060020160009054906101000a900460ff16905082565b60006103b3610906565b1515610427576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b8160001515600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161515141515610516576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001807f5f6164647220616c72656164792065786973747320696e2076656869636c655681526020017f656e646f7273000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60011515600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141561057b576000915061077b565b83600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000018190555060018060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555060018060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160006101000a81548160ff0219169083151502179055507f72faafae076b34bca7394603d775fc1a5d9081361444587f79eeb5e8e157304f8484604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a16001600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600191505b5092915050565b61078a610906565b15156107fe576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60026020528060005260406000206000915054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166109486109ec565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b61096c610906565b15156109e0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6109e9816109f4565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151515610abf576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001807f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206181526020017f646472657373000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea165627a7a72305820dea099e2705e32ebd80cf2c5d5cd8fc713486a322bacd7016d146155409477cc0029",
+  "deployedBytecode": "0x608060405260043610610088576000357c01000000000000000000000000000000000000000000000000000000009004806326583fc61461008d578063400f1415146100f257806341141a1714610162578063715018a6146101d55780637b658594146101ec5780638da5cb5b146102555780638f32d59b146102ac578063f2fde38b146102db575b600080fd5b34801561009957600080fd5b506100dc600480360360208110156100b057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061032c565b6040518082815260200191505060405180910390f35b3480156100fe57600080fd5b506101416004803603602081101561011557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b60405180838152602001821515151581526020019250505060405180910390f35b34801561016e57600080fd5b506101bb6004803603604081101561018557600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103a9565b604051808215151515815260200191505060405180910390f35b3480156101e157600080fd5b506101ea610782565b005b3480156101f857600080fd5b5061023b6004803603602081101561020f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108bd565b604051808215151515815260200191505060405180910390f35b34801561026157600080fd5b5061026a6108dd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102b857600080fd5b506102c1610906565b604051808215151515815260200191505060405180910390f35b3480156102e757600080fd5b5061032a600480360360208110156102fe57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610964565b005b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050919050565b60016020528060005260406000206000915090508060000154908060020160009054906101000a900460ff16905082565b60006103b3610906565b1515610427576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b8160001515600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161515141515610516576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001807f5f6164647220616c72656164792065786973747320696e2076656869636c655681526020017f656e646f7273000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60011515600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141561057b576000915061077b565b83600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000018190555060018060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555060018060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160006101000a81548160ff0219169083151502179055507f72faafae076b34bca7394603d775fc1a5d9081361444587f79eeb5e8e157304f8484604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a16001600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600191505b5092915050565b61078a610906565b15156107fe576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60026020528060005260406000206000915054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166109486109ec565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b61096c610906565b15156109e0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6109e9816109f4565b50565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151515610abf576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001807f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206181526020017f646472657373000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea165627a7a72305820dea099e2705e32ebd80cf2c5d5cd8fc713486a322bacd7016d146155409477cc0029",
+  "sourceMap": "107:1402:0:-;;;622:32;8:9:-1;5:2;;;30:1;27;20:12;5:2;622:32:0;707:12:4;:10;;;:12;;;:::i;:::-;698:6;;:21;;;;;;;;;;;;;;;;;;767:6;;;;;;;;;;;734:40;;763:1;734:40;;;;;;;;;;;;107:1402:0;;788:96:3;833:15;867:10;860:17;;788:96;:::o;107:1402:0:-;;;;;;;",
+  "deployedSourceMap": "107:1402:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1340:167;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1340:167:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1340:167:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;269:56;;8:9:-1;5:2;;;30:1;27;20:12;5:2;269:56:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;269:56:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;782:554;;8:9:-1;5:2;;;30:1;27;20:12;5:2;782:554:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;782:554:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1642:137:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1642:137:4;;;:::i;:::-;;329:48:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;329:48:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;329:48:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;857:77:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;857:77:4;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1208:92;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1208:92:4;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1928:107;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1928:107:4;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1928:107:4;;;;;;;;;;;;;;;;;;;:::i;:::-;;1340:167:0;1428:18;1463:14;:28;1478:12;1463:28;;;;;;;;;;;;;;;:39;;;1456:46;;1340:167;;;:::o;269:56::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;782:554::-;940:12;1061:9:4;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;915:12:0;547:5;521:31;;:15;:22;537:5;521:22;;;;;;;;;;;;;;;;;;;;;;;;;:31;;;506:100;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1006:4;966:44;;:14;:28;981:12;966:28;;;;;;;;;;;;;;;:36;;;;;;;;;;;;:44;;;962:77;;;1027:5;1020:12;;;;962:77;1087:11;1045:14;:28;1060:12;1045:28;;;;;;;;;;;;;;;:39;;:53;;;;1163:4;1104:14;:28;1119:12;1104:28;;;;;;;;;;;;;;;:42;;:56;1147:12;1104:56;;;;;;;;;;;;;;;;:63;;;;;;;;;;;;;;;;;;1212:4;1173:14;:28;1188:12;1173:28;;;;;;;;;;;;;;;:36;;;:43;;;;;;;;;;;;;;;;;;1228;1245:11;1258:12;1228:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;1309:4;1277:15;:29;1293:12;1277:29;;;;;;;;;;;;;;;;:36;;;;;;;;;;;;;;;;;;1326:4;1319:11;;612:1;1117::4;782:554:0;;;;:::o;1642:137:4:-;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1740:1;1703:40;;1724:6;;;;;;;;;;;1703:40;;;;;;;;;;;;1770:1;1753:6;;:19;;;;;;;;;;;;;;;;;;1642:137::o;329:48:0:-;;;;;;;;;;;;;;;;;;;;;;:::o;857:77:4:-;895:7;921:6;;;;;;;;;;;914:13;;857:77;:::o;1208:92::-;1248:4;1287:6;;;;;;;;;;;1271:22;;:12;:10;:12::i;:::-;:22;;;1264:29;;1208:92;:::o;1928:107::-;1061:9;:7;:9::i;:::-;1053:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2000:28;2019:8;2000:18;:28::i;:::-;1928:107;:::o;788:96:3:-;833:15;867:10;860:17;;788:96;:::o;2136:225:4:-;2229:1;2209:22;;:8;:22;;;;2201:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2318:8;2289:38;;2310:6;;;;;;;;;;;2289:38;;;;;;;;;;;;2346:8;2337:6;;:17;;;;;;;;;;;;;;;;;;2136:225;:::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"../node_modules/@openzeppelin/contracts/ownership/Ownable.sol\";\n\ncontract KoreaVehicleVendors is Ownable {\n\n  struct VehicleVendor {\n    bytes32 vendorName;\n    mapping (address => bool) adminAccounts;\n    bool isExist;\n  }\n\n  mapping (address => VehicleVendor) public vehicleVendors;\n  mapping (address => bool) public isVehicleVendor;\n\n  event AddVehicleVendor(bytes32 vendorName, address vendorAdmin);\n\n  modifier onlyUniqueAddressAllowed (address _addr) {\n    require(\n      isVehicleVendor[_addr] == false,\n      \"_addr already exists in vehicleVendors\"\n    );\n    _;\n  }\n\n  constructor () public {\n    \n  }\n\n  /**\n   * @param _vendorName vehicle vendor like \"Hyundai\", \"Kia\"\n   * @param _vendorAdmin address of vendor's admin\n   */\n  function addVehicleVendor (\n    bytes32 _vendorName, \n    address _vendorAdmin\n  )\n  public \n  onlyOwner\n  onlyUniqueAddressAllowed (_vendorAdmin)\n  returns (bool success)\n  {\n    if (vehicleVendors[_vendorAdmin].isExist == true) {\n      return false;\n    }\n\n    vehicleVendors[_vendorAdmin].vendorName = _vendorName;\n    vehicleVendors[_vendorAdmin].adminAccounts[_vendorAdmin] = true;\n    vehicleVendors[_vendorAdmin].isExist = true;\n\n    emit AddVehicleVendor(_vendorName, _vendorAdmin);\n    isVehicleVendor[_vendorAdmin] = true;\n    return true; \n  }\n\n  function getVehicleVendorName (\n    address _vendorAdmin\n  )\n  public\n  view\n  returns (bytes32 vendorName)\n  {\n    return vehicleVendors[_vendorAdmin].vendorName;\n  }\n}\n",
   "sourcePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol",
   "ast": {
     "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol",
     "exportedSymbols": {
       "KoreaVehicleVendors": [
-        87
+        121
       ]
     },
-    "id": 88,
+    "id": 122,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -152,8 +213,8 @@
         "file": "../node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
         "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 88,
-        "sourceUnit": 330,
+        "scope": 122,
+        "sourceUnit": 608,
         "src": "34:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -167,10 +228,10 @@
               "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 329,
+              "referencedDeclaration": 607,
               "src": "139:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$329",
+                "typeIdentifier": "t_contract$_Ownable_$607",
                 "typeString": "contract Ownable"
               }
             },
@@ -180,31 +241,31 @@
           }
         ],
         "contractDependencies": [
-          215,
-          329
+          493,
+          607
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 87,
+        "id": 121,
         "linearizedBaseContracts": [
-          87,
-          329,
-          215
+          121,
+          607,
+          493
         ],
         "name": "KoreaVehicleVendors",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "KoreaVehicleVendors.VehicleVendor",
-            "id": 10,
+            "id": 13,
             "members": [
               {
                 "constant": false,
                 "id": 6,
                 "name": "vendorName",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
+                "scope": 13,
                 "src": "179:18:0",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -227,36 +288,70 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 10,
                 "name": "adminAccounts",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "203:23:0",
+                "scope": 13,
+                "src": "203:39:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                  "typeString": "address[]"
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "baseType": {
+                  "id": 9,
+                  "keyType": {
                     "id": 7,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "203:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "212:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 8,
-                  "length": null,
-                  "nodeType": "ArrayTypeName",
-                  "src": "203:9:0",
+                  "nodeType": "Mapping",
+                  "src": "203:25:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                    "typeString": "address[]"
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                    "typeString": "mapping(address => bool)"
+                  },
+                  "valueType": {
+                    "id": 8,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "223:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 12,
+                "name": "isExist",
+                "nodeType": "VariableDeclaration",
+                "scope": 13,
+                "src": "248:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 11,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "248:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
                   }
                 },
                 "value": null,
@@ -265,64 +360,64 @@
             ],
             "name": "VehicleVendor",
             "nodeType": "StructDefinition",
-            "scope": 87,
-            "src": "152:79:0",
+            "scope": 121,
+            "src": "152:113:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 14,
+            "id": 17,
             "name": "vehicleVendors",
             "nodeType": "VariableDeclaration",
-            "scope": 87,
-            "src": "235:49:0",
+            "scope": 121,
+            "src": "269:56:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
               "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor)"
             },
             "typeName": {
-              "id": 13,
+              "id": 16,
               "keyType": {
-                "id": 11,
+                "id": 14,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "244:7:0",
+                "src": "278:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "235:34:0",
+              "src": "269:34:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                 "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 12,
+                "id": 15,
                 "name": "VehicleVendor",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 10,
-                "src": "255:13:0",
+                "referencedDeclaration": 13,
+                "src": "289:13:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_VehicleVendor_$10_storage_ptr",
+                  "typeIdentifier": "t_struct$_VehicleVendor_$13_storage_ptr",
                   "typeString": "struct KoreaVehicleVendors.VehicleVendor"
                 }
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
           },
           {
             "constant": false,
-            "id": 18,
+            "id": 21,
             "name": "isVehicleVendor",
             "nodeType": "VariableDeclaration",
-            "scope": 87,
-            "src": "288:41:0",
+            "scope": 121,
+            "src": "329:48:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -330,28 +425,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 17,
+              "id": 20,
               "keyType": {
-                "id": 15,
+                "id": 18,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "297:7:0",
+                "src": "338:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "288:25:0",
+              "src": "329:25:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 16,
+                "id": 19,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "308:4:0",
+                "src": "349:4:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -359,26 +454,26 @@
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 24,
+            "id": 27,
             "name": "AddVehicleVendor",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 23,
+              "id": 26,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 20,
+                  "id": 23,
                   "indexed": false,
                   "name": "vendorName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 24,
-                  "src": "357:18:0",
+                  "scope": 27,
+                  "src": "405:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -386,10 +481,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 19,
+                    "id": 22,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "357:7:0",
+                    "src": "405:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -400,12 +495,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 22,
+                  "id": 25,
                   "indexed": false,
                   "name": "vendorAdmin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 24,
-                  "src": "377:19:0",
+                  "scope": 27,
+                  "src": "425:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -413,10 +508,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 21,
+                    "id": 24,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "377:7:0",
+                    "src": "425:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -427,15 +522,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "356:41:0"
+              "src": "404:41:0"
             },
-            "src": "334:64:0"
+            "src": "382:64:0"
           },
           {
             "body": {
-              "id": 38,
+              "id": 41,
               "nodeType": "Block",
-              "src": "452:118:0",
+              "src": "500:118:0",
               "statements": [
                 {
                   "expression": {
@@ -447,7 +542,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 33,
+                        "id": 36,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -456,26 +551,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 29,
+                            "id": 32,
                             "name": "isVehicleVendor",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18,
-                            "src": "473:15:0",
+                            "referencedDeclaration": 21,
+                            "src": "521:15:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                               "typeString": "mapping(address => bool)"
                             }
                           },
-                          "id": 31,
+                          "id": 34,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 30,
+                            "id": 33,
                             "name": "_addr",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 26,
-                            "src": "489:5:0",
+                            "referencedDeclaration": 29,
+                            "src": "537:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -486,7 +581,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "473:22:0",
+                          "src": "521:22:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -497,14 +592,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 32,
+                          "id": 35,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "499:5:0",
+                          "src": "547:5:0",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -512,7 +607,7 @@
                           },
                           "value": "false"
                         },
-                        "src": "473:31:0",
+                        "src": "521:31:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -521,14 +616,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "5f6164647220616c72656164792065786973747320696e2076656869636c6556656e646f7273",
-                        "id": 34,
+                        "id": 37,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "512:40:0",
+                        "src": "560:40:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_77c80c7ccee4222819612d85f4c35694fb8e73c3532453b7a3830ef70510e331",
@@ -548,21 +643,21 @@
                           "typeString": "literal_string \"_addr already exists in vehicleVendors\""
                         }
                       ],
-                      "id": 28,
+                      "id": 31,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        347,
-                        348
+                        625,
+                        626
                       ],
-                      "referencedDeclaration": 348,
-                      "src": "458:7:0",
+                      "referencedDeclaration": 626,
+                      "src": "506:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 35,
+                    "id": 38,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -570,38 +665,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "458:100:0",
+                    "src": "506:100:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 36,
+                  "id": 39,
                   "nodeType": "ExpressionStatement",
-                  "src": "458:100:0"
+                  "src": "506:100:0"
                 },
                 {
-                  "id": 37,
+                  "id": 40,
                   "nodeType": "PlaceholderStatement",
-                  "src": "564:1:0"
+                  "src": "612:1:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 39,
+            "id": 42,
             "name": "onlyUniqueAddressAllowed",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 27,
+              "id": 30,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 26,
+                  "id": 29,
                   "name": "_addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39,
-                  "src": "437:13:0",
+                  "scope": 42,
+                  "src": "485:13:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -609,10 +704,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 25,
+                    "id": 28,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "437:7:0",
+                    "src": "485:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -623,83 +718,87 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "436:15:0"
+              "src": "484:15:0"
             },
-            "src": "402:168:0",
+            "src": "450:168:0",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 42,
+              "id": 45,
               "nodeType": "Block",
-              "src": "596:10:0",
+              "src": "644:10:0",
               "statements": []
             },
             "documentation": null,
-            "id": 43,
+            "id": 46,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 40,
+              "id": 43,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "586:2:0"
+              "src": "634:2:0"
             },
             "returnParameters": {
-              "id": 41,
+              "id": 44,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "596:0:0"
+              "src": "644:0:0"
             },
-            "scope": 87,
-            "src": "574:32:0",
+            "scope": 121,
+            "src": "622:32:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 85,
+              "id": 106,
               "nodeType": "Block",
-              "src": "911:246:0",
+              "src": "956:380:0",
               "statements": [
                 {
-                  "expression": {
+                  "condition": {
                     "argumentTypes": null,
-                    "id": 62,
+                    "commonType": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "id": 65,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftHandSide": {
+                    "leftExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 57,
+                          "id": 60,
                           "name": "vehicleVendors",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14,
-                          "src": "917:14:0",
+                          "referencedDeclaration": 17,
+                          "src": "966:14:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                             "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
                           }
                         },
-                        "id": 59,
+                        "id": 62,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 58,
+                          "id": 61,
                           "name": "_vendorAdmin",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 47,
-                          "src": "932:12:0",
+                          "referencedDeclaration": 50,
+                          "src": "981:12:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -710,13 +809,139 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "917:28:0",
+                        "src": "966:28:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_VehicleVendor_$10_storage",
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
                           "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
                         }
                       },
-                      "id": 60,
+                      "id": 63,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "isExist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12,
+                      "src": "966:36:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 64,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1006:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "966:44:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 69,
+                  "nodeType": "IfStatement",
+                  "src": "962:77:0",
+                  "trueBody": {
+                    "id": 68,
+                    "nodeType": "Block",
+                    "src": "1012:27:0",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "hexValue": "66616c7365",
+                          "id": 66,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1027:5:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        "functionReturnParameters": 59,
+                        "id": 67,
+                        "nodeType": "Return",
+                        "src": "1020:12:0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 75,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 70,
+                          "name": "vehicleVendors",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 17,
+                          "src": "1045:14:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                            "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                          }
+                        },
+                        "id": 72,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 71,
+                          "name": "_vendorAdmin",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 50,
+                          "src": "1060:12:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1045:28:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                          "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                        }
+                      },
+                      "id": 73,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -724,7 +949,7 @@
                       "memberName": "vendorName",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 6,
-                      "src": "917:39:0",
+                      "src": "1045:39:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -734,78 +959,63 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 61,
+                      "id": 74,
                       "name": "_vendorName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 45,
-                      "src": "959:11:0",
+                      "referencedDeclaration": 48,
+                      "src": "1087:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "917:53:0",
+                    "src": "1045:53:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 63,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "917:53:0"
+                  "src": "1045:53:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 69,
-                        "name": "_vendorAdmin",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1024:12:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      ],
-                      "expression": {
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 64,
+                            "id": 77,
                             "name": "vehicleVendors",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14,
-                            "src": "976:14:0",
+                            "referencedDeclaration": 17,
+                            "src": "1104:14:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                               "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
                             }
                           },
-                          "id": 66,
+                          "id": 79,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 65,
+                            "id": 78,
                             "name": "_vendorAdmin",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 47,
-                            "src": "991:12:0",
+                            "referencedDeclaration": 50,
+                            "src": "1119:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -816,57 +1026,174 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "976:28:0",
+                          "src": "1104:28:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_VehicleVendor_$10_storage",
+                            "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
                             "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
                           }
                         },
-                        "id": 67,
+                        "id": 80,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "adminAccounts",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9,
-                        "src": "976:42:0",
+                        "referencedDeclaration": 10,
+                        "src": "1104:42:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
-                          "typeString": "address[] storage ref"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 68,
+                      "id": 82,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 81,
+                        "name": "_vendorAdmin",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 50,
+                        "src": "1147:12:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
                       "isConstant": false,
-                      "isLValue": false,
+                      "isLValue": true,
                       "isPure": false,
-                      "lValueRequested": false,
-                      "memberName": "push",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": null,
-                      "src": "976:47:0",
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1104:56:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
-                        "typeString": "function (address) returns (uint256)"
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
                       }
                     },
-                    "id": 70,
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 83,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1163:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1104:63:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 85,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1104:63:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
-                    "kind": "functionCall",
                     "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "976:61:0",
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "vehicleVendors",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 17,
+                          "src": "1173:14:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                            "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                          }
+                        },
+                        "id": 88,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "_vendorAdmin",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 50,
+                          "src": "1188:12:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1173:28:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                          "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "isExist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12,
+                      "src": "1173:36:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 90,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1212:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1173:43:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 71,
+                  "id": 92,
                   "nodeType": "ExpressionStatement",
-                  "src": "976:61:0"
+                  "src": "1173:43:0"
                 },
                 {
                   "eventCall": {
@@ -874,12 +1201,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 73,
+                        "id": 94,
                         "name": "_vendorName",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "1066:11:0",
+                        "referencedDeclaration": 48,
+                        "src": "1245:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -887,12 +1214,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 74,
+                        "id": 95,
                         "name": "_vendorAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1079:12:0",
+                        "referencedDeclaration": 50,
+                        "src": "1258:12:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -910,18 +1237,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 72,
+                      "id": 93,
                       "name": "AddVehicleVendor",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 24,
-                      "src": "1049:16:0",
+                      "referencedDeclaration": 27,
+                      "src": "1228:16:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
                       }
                     },
-                    "id": 75,
+                    "id": 96,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -929,20 +1256,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1049:43:0",
+                    "src": "1228:43:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 76,
+                  "id": 97,
                   "nodeType": "EmitStatement",
-                  "src": "1044:48:0"
+                  "src": "1223:48:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 81,
+                    "id": 102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -951,26 +1278,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 77,
+                        "id": 98,
                         "name": "isVehicleVendor",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18,
-                        "src": "1098:15:0",
+                        "referencedDeclaration": 21,
+                        "src": "1277:15:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 79,
+                      "id": 100,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 78,
+                        "id": 99,
                         "name": "_vendorAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1114:12:0",
+                        "referencedDeclaration": 50,
+                        "src": "1293:12:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -981,7 +1308,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "1098:29:0",
+                      "src": "1277:29:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -992,14 +1319,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 80,
+                      "id": 101,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1130:4:0",
+                      "src": "1309:4:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -1007,28 +1334,28 @@
                       },
                       "value": "true"
                     },
-                    "src": "1098:36:0",
+                    "src": "1277:36:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 82,
+                  "id": 103,
                   "nodeType": "ExpressionStatement",
-                  "src": "1098:36:0"
+                  "src": "1277:36:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 83,
+                    "id": 104,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "1147:4:0",
+                    "src": "1326:4:0",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -1036,84 +1363,84 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 56,
-                  "id": 84,
+                  "functionReturnParameters": 59,
+                  "id": 105,
                   "nodeType": "Return",
-                  "src": "1140:11:0"
+                  "src": "1319:11:0"
                 }
               ]
             },
-            "documentation": "@param _vendorName vehicle vendor like \"Hyundai\", \"Kia\", \"\n@param _vendorAdmin address of vendor's admin",
-            "id": 86,
+            "documentation": "@param _vendorName vehicle vendor like \"Hyundai\", \"Kia\"\n@param _vendorAdmin address of vendor's admin",
+            "id": 107,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 50,
+                "id": 53,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 49,
+                  "id": 52,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 262,
-                  "src": "832:9:0",
+                  "referencedDeclaration": 540,
+                  "src": "877:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "832:9:0"
+                "src": "877:9:0"
               },
               {
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 52,
+                    "id": 55,
                     "name": "_vendorAdmin",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 47,
-                    "src": "870:12:0",
+                    "referencedDeclaration": 50,
+                    "src": "915:12:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   }
                 ],
-                "id": 53,
+                "id": 56,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 51,
+                  "id": 54,
                   "name": "onlyUniqueAddressAllowed",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 39,
-                  "src": "844:24:0",
+                  "referencedDeclaration": 42,
+                  "src": "889:24:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_address_$",
                     "typeString": "modifier (address)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "844:39:0"
+                "src": "889:39:0"
               }
             ],
             "name": "addVehicleVendor",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 48,
+              "id": 51,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45,
+                  "id": 48,
                   "name": "_vendorName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "769:19:0",
+                  "scope": 107,
+                  "src": "814:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1121,10 +1448,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 44,
+                    "id": 47,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "769:7:0",
+                    "src": "814:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1135,11 +1462,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 47,
+                  "id": 50,
                   "name": "_vendorAdmin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "795:20:0",
+                  "scope": 107,
+                  "src": "840:20:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1147,10 +1474,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46,
+                    "id": 49,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "795:7:0",
+                    "src": "840:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1161,19 +1488,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "763:56:0"
+              "src": "808:56:0"
             },
             "returnParameters": {
-              "id": 56,
+              "id": 59,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 55,
+                  "id": 58,
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "895:12:0",
+                  "scope": 107,
+                  "src": "940:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1181,10 +1508,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 54,
+                    "id": 57,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "895:4:0",
+                    "src": "940:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1194,29 +1521,179 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "894:14:0"
+              "src": "939:14:0"
             },
-            "scope": 87,
-            "src": "737:420:0",
+            "scope": 121,
+            "src": "782:554:0",
             "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 119,
+              "nodeType": "Block",
+              "src": "1450:57:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 114,
+                        "name": "vehicleVendors",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 17,
+                        "src": "1463:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                          "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                        }
+                      },
+                      "id": 116,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 115,
+                        "name": "_vendorAdmin",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 109,
+                        "src": "1478:12:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1463:28:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                        "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                      }
+                    },
+                    "id": 117,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "vendorName",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 6,
+                    "src": "1463:39:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 113,
+                  "id": 118,
+                  "nodeType": "Return",
+                  "src": "1456:46:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 120,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVehicleVendorName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_vendorAdmin",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 120,
+                  "src": "1376:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1376:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1370:30:0"
+            },
+            "returnParameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "name": "vendorName",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 120,
+                  "src": "1428:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1428:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1427:20:0"
+            },
+            "scope": 121,
+            "src": "1340:167:0",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 88,
-        "src": "107:1052:0"
+        "scope": 122,
+        "src": "107:1402:0"
       }
     ],
-    "src": "0:1160:0"
+    "src": "0:1510:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/aeharv/project/github/Modoos-Recall-Smart-Contract/contracts/KoreaVehicleVendors.sol",
     "exportedSymbols": {
       "KoreaVehicleVendors": [
-        87
+        121
       ]
     },
-    "id": 88,
+    "id": 122,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -1238,8 +1715,8 @@
         "file": "../node_modules/@openzeppelin/contracts/ownership/Ownable.sol",
         "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 88,
-        "sourceUnit": 330,
+        "scope": 122,
+        "sourceUnit": 608,
         "src": "34:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1253,10 +1730,10 @@
               "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 329,
+              "referencedDeclaration": 607,
               "src": "139:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$329",
+                "typeIdentifier": "t_contract$_Ownable_$607",
                 "typeString": "contract Ownable"
               }
             },
@@ -1266,31 +1743,31 @@
           }
         ],
         "contractDependencies": [
-          215,
-          329
+          493,
+          607
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 87,
+        "id": 121,
         "linearizedBaseContracts": [
-          87,
-          329,
-          215
+          121,
+          607,
+          493
         ],
         "name": "KoreaVehicleVendors",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "KoreaVehicleVendors.VehicleVendor",
-            "id": 10,
+            "id": 13,
             "members": [
               {
                 "constant": false,
                 "id": 6,
                 "name": "vendorName",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
+                "scope": 13,
                 "src": "179:18:0",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1313,36 +1790,70 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 10,
                 "name": "adminAccounts",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "203:23:0",
+                "scope": 13,
+                "src": "203:39:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                  "typeString": "address[]"
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "baseType": {
+                  "id": 9,
+                  "keyType": {
                     "id": 7,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "203:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "212:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 8,
-                  "length": null,
-                  "nodeType": "ArrayTypeName",
-                  "src": "203:9:0",
+                  "nodeType": "Mapping",
+                  "src": "203:25:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                    "typeString": "address[]"
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                    "typeString": "mapping(address => bool)"
+                  },
+                  "valueType": {
+                    "id": 8,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "223:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 12,
+                "name": "isExist",
+                "nodeType": "VariableDeclaration",
+                "scope": 13,
+                "src": "248:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 11,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "248:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
                   }
                 },
                 "value": null,
@@ -1351,64 +1862,64 @@
             ],
             "name": "VehicleVendor",
             "nodeType": "StructDefinition",
-            "scope": 87,
-            "src": "152:79:0",
+            "scope": 121,
+            "src": "152:113:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 14,
+            "id": 17,
             "name": "vehicleVendors",
             "nodeType": "VariableDeclaration",
-            "scope": 87,
-            "src": "235:49:0",
+            "scope": 121,
+            "src": "269:56:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
               "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor)"
             },
             "typeName": {
-              "id": 13,
+              "id": 16,
               "keyType": {
-                "id": 11,
+                "id": 14,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "244:7:0",
+                "src": "278:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "235:34:0",
+              "src": "269:34:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                 "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 12,
+                "id": 15,
                 "name": "VehicleVendor",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 10,
-                "src": "255:13:0",
+                "referencedDeclaration": 13,
+                "src": "289:13:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_VehicleVendor_$10_storage_ptr",
+                  "typeIdentifier": "t_struct$_VehicleVendor_$13_storage_ptr",
                   "typeString": "struct KoreaVehicleVendors.VehicleVendor"
                 }
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
           },
           {
             "constant": false,
-            "id": 18,
+            "id": 21,
             "name": "isVehicleVendor",
             "nodeType": "VariableDeclaration",
-            "scope": 87,
-            "src": "288:41:0",
+            "scope": 121,
+            "src": "329:48:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1416,28 +1927,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 17,
+              "id": 20,
               "keyType": {
-                "id": 15,
+                "id": 18,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "297:7:0",
+                "src": "338:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "288:25:0",
+              "src": "329:25:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 16,
+                "id": 19,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "308:4:0",
+                "src": "349:4:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -1445,26 +1956,26 @@
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 24,
+            "id": 27,
             "name": "AddVehicleVendor",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 23,
+              "id": 26,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 20,
+                  "id": 23,
                   "indexed": false,
                   "name": "vendorName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 24,
-                  "src": "357:18:0",
+                  "scope": 27,
+                  "src": "405:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1472,10 +1983,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 19,
+                    "id": 22,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "357:7:0",
+                    "src": "405:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1486,12 +1997,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 22,
+                  "id": 25,
                   "indexed": false,
                   "name": "vendorAdmin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 24,
-                  "src": "377:19:0",
+                  "scope": 27,
+                  "src": "425:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1499,10 +2010,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 21,
+                    "id": 24,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "377:7:0",
+                    "src": "425:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1513,15 +2024,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "356:41:0"
+              "src": "404:41:0"
             },
-            "src": "334:64:0"
+            "src": "382:64:0"
           },
           {
             "body": {
-              "id": 38,
+              "id": 41,
               "nodeType": "Block",
-              "src": "452:118:0",
+              "src": "500:118:0",
               "statements": [
                 {
                   "expression": {
@@ -1533,7 +2044,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 33,
+                        "id": 36,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1542,26 +2053,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 29,
+                            "id": 32,
                             "name": "isVehicleVendor",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18,
-                            "src": "473:15:0",
+                            "referencedDeclaration": 21,
+                            "src": "521:15:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                               "typeString": "mapping(address => bool)"
                             }
                           },
-                          "id": 31,
+                          "id": 34,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 30,
+                            "id": 33,
                             "name": "_addr",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 26,
-                            "src": "489:5:0",
+                            "referencedDeclaration": 29,
+                            "src": "537:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1572,7 +2083,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "473:22:0",
+                          "src": "521:22:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -1583,14 +2094,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 32,
+                          "id": 35,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "499:5:0",
+                          "src": "547:5:0",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -1598,7 +2109,7 @@
                           },
                           "value": "false"
                         },
-                        "src": "473:31:0",
+                        "src": "521:31:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1607,14 +2118,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "5f6164647220616c72656164792065786973747320696e2076656869636c6556656e646f7273",
-                        "id": 34,
+                        "id": 37,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "512:40:0",
+                        "src": "560:40:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_77c80c7ccee4222819612d85f4c35694fb8e73c3532453b7a3830ef70510e331",
@@ -1634,21 +2145,21 @@
                           "typeString": "literal_string \"_addr already exists in vehicleVendors\""
                         }
                       ],
-                      "id": 28,
+                      "id": 31,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        347,
-                        348
+                        625,
+                        626
                       ],
-                      "referencedDeclaration": 348,
-                      "src": "458:7:0",
+                      "referencedDeclaration": 626,
+                      "src": "506:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 35,
+                    "id": 38,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1656,38 +2167,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "458:100:0",
+                    "src": "506:100:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 36,
+                  "id": 39,
                   "nodeType": "ExpressionStatement",
-                  "src": "458:100:0"
+                  "src": "506:100:0"
                 },
                 {
-                  "id": 37,
+                  "id": 40,
                   "nodeType": "PlaceholderStatement",
-                  "src": "564:1:0"
+                  "src": "612:1:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 39,
+            "id": 42,
             "name": "onlyUniqueAddressAllowed",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 27,
+              "id": 30,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 26,
+                  "id": 29,
                   "name": "_addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39,
-                  "src": "437:13:0",
+                  "scope": 42,
+                  "src": "485:13:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1695,10 +2206,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 25,
+                    "id": 28,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "437:7:0",
+                    "src": "485:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1709,83 +2220,87 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "436:15:0"
+              "src": "484:15:0"
             },
-            "src": "402:168:0",
+            "src": "450:168:0",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 42,
+              "id": 45,
               "nodeType": "Block",
-              "src": "596:10:0",
+              "src": "644:10:0",
               "statements": []
             },
             "documentation": null,
-            "id": 43,
+            "id": 46,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 40,
+              "id": 43,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "586:2:0"
+              "src": "634:2:0"
             },
             "returnParameters": {
-              "id": 41,
+              "id": 44,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "596:0:0"
+              "src": "644:0:0"
             },
-            "scope": 87,
-            "src": "574:32:0",
+            "scope": 121,
+            "src": "622:32:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 85,
+              "id": 106,
               "nodeType": "Block",
-              "src": "911:246:0",
+              "src": "956:380:0",
               "statements": [
                 {
-                  "expression": {
+                  "condition": {
                     "argumentTypes": null,
-                    "id": 62,
+                    "commonType": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "id": 65,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftHandSide": {
+                    "leftExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 57,
+                          "id": 60,
                           "name": "vehicleVendors",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14,
-                          "src": "917:14:0",
+                          "referencedDeclaration": 17,
+                          "src": "966:14:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                             "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
                           }
                         },
-                        "id": 59,
+                        "id": 62,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 58,
+                          "id": 61,
                           "name": "_vendorAdmin",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 47,
-                          "src": "932:12:0",
+                          "referencedDeclaration": 50,
+                          "src": "981:12:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1796,13 +2311,139 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "917:28:0",
+                        "src": "966:28:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_VehicleVendor_$10_storage",
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
                           "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
                         }
                       },
-                      "id": 60,
+                      "id": 63,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "isExist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12,
+                      "src": "966:36:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 64,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1006:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "966:44:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 69,
+                  "nodeType": "IfStatement",
+                  "src": "962:77:0",
+                  "trueBody": {
+                    "id": 68,
+                    "nodeType": "Block",
+                    "src": "1012:27:0",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "hexValue": "66616c7365",
+                          "id": 66,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1027:5:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        "functionReturnParameters": 59,
+                        "id": 67,
+                        "nodeType": "Return",
+                        "src": "1020:12:0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 75,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 70,
+                          "name": "vehicleVendors",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 17,
+                          "src": "1045:14:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                            "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                          }
+                        },
+                        "id": 72,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 71,
+                          "name": "_vendorAdmin",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 50,
+                          "src": "1060:12:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1045:28:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                          "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                        }
+                      },
+                      "id": 73,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -1810,7 +2451,7 @@
                       "memberName": "vendorName",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 6,
-                      "src": "917:39:0",
+                      "src": "1045:39:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -1820,78 +2461,63 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 61,
+                      "id": 74,
                       "name": "_vendorName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 45,
-                      "src": "959:11:0",
+                      "referencedDeclaration": 48,
+                      "src": "1087:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "917:53:0",
+                    "src": "1045:53:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 63,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "917:53:0"
+                  "src": "1045:53:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 69,
-                        "name": "_vendorAdmin",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1024:12:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      ],
-                      "expression": {
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 64,
+                            "id": 77,
                             "name": "vehicleVendors",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14,
-                            "src": "976:14:0",
+                            "referencedDeclaration": 17,
+                            "src": "1104:14:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$10_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
                               "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
                             }
                           },
-                          "id": 66,
+                          "id": 79,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 65,
+                            "id": 78,
                             "name": "_vendorAdmin",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 47,
-                            "src": "991:12:0",
+                            "referencedDeclaration": 50,
+                            "src": "1119:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1902,57 +2528,174 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "976:28:0",
+                          "src": "1104:28:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_VehicleVendor_$10_storage",
+                            "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
                             "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
                           }
                         },
-                        "id": 67,
+                        "id": 80,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "adminAccounts",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9,
-                        "src": "976:42:0",
+                        "referencedDeclaration": 10,
+                        "src": "1104:42:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
-                          "typeString": "address[] storage ref"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 68,
+                      "id": 82,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 81,
+                        "name": "_vendorAdmin",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 50,
+                        "src": "1147:12:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
                       "isConstant": false,
-                      "isLValue": false,
+                      "isLValue": true,
                       "isPure": false,
-                      "lValueRequested": false,
-                      "memberName": "push",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": null,
-                      "src": "976:47:0",
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1104:56:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
-                        "typeString": "function (address) returns (uint256)"
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
                       }
                     },
-                    "id": 70,
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 83,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1163:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1104:63:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 85,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1104:63:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
-                    "kind": "functionCall",
                     "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "976:61:0",
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "vehicleVendors",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 17,
+                          "src": "1173:14:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                            "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                          }
+                        },
+                        "id": 88,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "_vendorAdmin",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 50,
+                          "src": "1188:12:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1173:28:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                          "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "isExist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12,
+                      "src": "1173:36:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 90,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1212:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1173:43:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 71,
+                  "id": 92,
                   "nodeType": "ExpressionStatement",
-                  "src": "976:61:0"
+                  "src": "1173:43:0"
                 },
                 {
                   "eventCall": {
@@ -1960,12 +2703,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 73,
+                        "id": 94,
                         "name": "_vendorName",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "1066:11:0",
+                        "referencedDeclaration": 48,
+                        "src": "1245:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1973,12 +2716,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 74,
+                        "id": 95,
                         "name": "_vendorAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1079:12:0",
+                        "referencedDeclaration": 50,
+                        "src": "1258:12:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1996,18 +2739,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 72,
+                      "id": 93,
                       "name": "AddVehicleVendor",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 24,
-                      "src": "1049:16:0",
+                      "referencedDeclaration": 27,
+                      "src": "1228:16:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
                       }
                     },
-                    "id": 75,
+                    "id": 96,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2015,20 +2758,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1049:43:0",
+                    "src": "1228:43:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 76,
+                  "id": 97,
                   "nodeType": "EmitStatement",
-                  "src": "1044:48:0"
+                  "src": "1223:48:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 81,
+                    "id": 102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2037,26 +2780,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 77,
+                        "id": 98,
                         "name": "isVehicleVendor",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18,
-                        "src": "1098:15:0",
+                        "referencedDeclaration": 21,
+                        "src": "1277:15:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 79,
+                      "id": 100,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 78,
+                        "id": 99,
                         "name": "_vendorAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 47,
-                        "src": "1114:12:0",
+                        "referencedDeclaration": 50,
+                        "src": "1293:12:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2067,7 +2810,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "1098:29:0",
+                      "src": "1277:29:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -2078,14 +2821,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 80,
+                      "id": 101,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1130:4:0",
+                      "src": "1309:4:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -2093,28 +2836,28 @@
                       },
                       "value": "true"
                     },
-                    "src": "1098:36:0",
+                    "src": "1277:36:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 82,
+                  "id": 103,
                   "nodeType": "ExpressionStatement",
-                  "src": "1098:36:0"
+                  "src": "1277:36:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 83,
+                    "id": 104,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "1147:4:0",
+                    "src": "1326:4:0",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -2122,84 +2865,84 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 56,
-                  "id": 84,
+                  "functionReturnParameters": 59,
+                  "id": 105,
                   "nodeType": "Return",
-                  "src": "1140:11:0"
+                  "src": "1319:11:0"
                 }
               ]
             },
-            "documentation": "@param _vendorName vehicle vendor like \"Hyundai\", \"Kia\", \"\n@param _vendorAdmin address of vendor's admin",
-            "id": 86,
+            "documentation": "@param _vendorName vehicle vendor like \"Hyundai\", \"Kia\"\n@param _vendorAdmin address of vendor's admin",
+            "id": 107,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 50,
+                "id": 53,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 49,
+                  "id": 52,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 262,
-                  "src": "832:9:0",
+                  "referencedDeclaration": 540,
+                  "src": "877:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "832:9:0"
+                "src": "877:9:0"
               },
               {
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 52,
+                    "id": 55,
                     "name": "_vendorAdmin",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 47,
-                    "src": "870:12:0",
+                    "referencedDeclaration": 50,
+                    "src": "915:12:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   }
                 ],
-                "id": 53,
+                "id": 56,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 51,
+                  "id": 54,
                   "name": "onlyUniqueAddressAllowed",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 39,
-                  "src": "844:24:0",
+                  "referencedDeclaration": 42,
+                  "src": "889:24:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_address_$",
                     "typeString": "modifier (address)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "844:39:0"
+                "src": "889:39:0"
               }
             ],
             "name": "addVehicleVendor",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 48,
+              "id": 51,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45,
+                  "id": 48,
                   "name": "_vendorName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "769:19:0",
+                  "scope": 107,
+                  "src": "814:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2207,10 +2950,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 44,
+                    "id": 47,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "769:7:0",
+                    "src": "814:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2221,11 +2964,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 47,
+                  "id": 50,
                   "name": "_vendorAdmin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "795:20:0",
+                  "scope": 107,
+                  "src": "840:20:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2233,10 +2976,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46,
+                    "id": 49,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "795:7:0",
+                    "src": "840:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2247,19 +2990,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "763:56:0"
+              "src": "808:56:0"
             },
             "returnParameters": {
-              "id": 56,
+              "id": 59,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 55,
+                  "id": 58,
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 86,
-                  "src": "895:12:0",
+                  "scope": 107,
+                  "src": "940:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2267,10 +3010,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 54,
+                    "id": 57,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "895:4:0",
+                    "src": "940:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2280,34 +3023,184 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "894:14:0"
+              "src": "939:14:0"
             },
-            "scope": 87,
-            "src": "737:420:0",
+            "scope": 121,
+            "src": "782:554:0",
             "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 119,
+              "nodeType": "Block",
+              "src": "1450:57:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 114,
+                        "name": "vehicleVendors",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 17,
+                        "src": "1463:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VehicleVendor_$13_storage_$",
+                          "typeString": "mapping(address => struct KoreaVehicleVendors.VehicleVendor storage ref)"
+                        }
+                      },
+                      "id": 116,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 115,
+                        "name": "_vendorAdmin",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 109,
+                        "src": "1478:12:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1463:28:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VehicleVendor_$13_storage",
+                        "typeString": "struct KoreaVehicleVendors.VehicleVendor storage ref"
+                      }
+                    },
+                    "id": 117,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "vendorName",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 6,
+                    "src": "1463:39:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 113,
+                  "id": 118,
+                  "nodeType": "Return",
+                  "src": "1456:46:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 120,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVehicleVendorName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_vendorAdmin",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 120,
+                  "src": "1376:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1376:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1370:30:0"
+            },
+            "returnParameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "name": "vendorName",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 120,
+                  "src": "1428:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1428:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1427:20:0"
+            },
+            "scope": 121,
+            "src": "1340:167:0",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 88,
-        "src": "107:1052:0"
+        "scope": 122,
+        "src": "107:1402:0"
       }
     ],
-    "src": "0:1160:0"
+    "src": "0:1510:0"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Linux.g++"
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-11-24T15:03:55.905Z",
+  "updatedAt": "2019-11-29T07:31:34.112Z",
   "devdoc": {
     "methods": {
       "addVehicleVendor(bytes32,address)": {
         "params": {
           "_vendorAdmin": "address of vendor's admin",
-          "_vendorName": "vehicle vendor like \"Hyundai\", \"Kia\", \""
+          "_vendorName": "vehicle vendor like \"Hyundai\", \"Kia\""
         }
       },
       "isOwner()": {

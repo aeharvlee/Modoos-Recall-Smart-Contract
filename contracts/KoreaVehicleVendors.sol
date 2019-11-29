@@ -28,7 +28,7 @@ contract KoreaVehicleVendors is Ownable {
   }
 
   /**
-   * @param _vendorName vehicle vendor like "Hyundai", "Kia", "
+   * @param _vendorName vehicle vendor like "Hyundai", "Kia"
    * @param _vendorAdmin address of vendor's admin
    */
   function addVehicleVendor (
@@ -53,7 +53,7 @@ contract KoreaVehicleVendors is Ownable {
     return true; 
   }
 
-  function getVehicleVendor (
+  function getVehicleVendorName (
     address _vendorAdmin
   )
   public

@@ -25,6 +25,11 @@ const result = [
   {message: 'Hello, world (again)!'}
 ]
 
+app.get('/', async (req, res) => {
+  console.log(req)
+  res.send('GET request to the homepage')
+})
+
 app.post('/', async (req, res) => {
   const feePayer = await caver.klay.accounts.wallet.add(
     keyChain['government']['privateKey'],
@@ -33,7 +38,7 @@ app.post('/', async (req, res) => {
 
   const data = req.body
   console.log(data)
-  res.json(data)
+  res.send(data)
   /*
   const abiCreateRecall = recall.methods.createRecall(
     helper.stringToBytes32(data.primaryKey),

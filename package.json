@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/aeharvlee/Modoos-Recall-Smart-Contract#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^2.4.0",
+    "@openzeppelin/contracts": "^4.7.2",
     "assert": "^2.0.0",
     "body-parser": "^1.19.0",
     "caver-js": "^1.2.1",
